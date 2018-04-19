@@ -1,0 +1,63 @@
+
+<body class="background-body" >
+  
+  <h1>Welcome <span>Register</span></h1>
+
+  <ul class="tabs" role="tablist">   
+      <li>
+          <input type="radio" name="tabs" id="tab2" />
+          <label class="texto" for="tab2"
+                 role="tab" 
+                 aria-selected="false" 
+                 aria-controls="panel2" 
+                 tabindex="0">Register</label>
+          <div id="tab-content2" 
+               class="tab-content"
+               role="tabpanel" 
+               aria-labelledby="specification" 
+               aria-hidden="true">
+               <div *ngIf="status == 'success'">
+                    Registro realizado correctamente
+               </div>
+               <div *ngIf="status == 'error'">
+                NEL Registro realizado correctamente
+           </div>
+
+               <form #registerForm="ngForm" (ngSubmit)="onSubmit()">
+                    <div id="fancy-inputs">
+                            <label class="input">
+                              <input type="text" name="name" #name="ngModel" [(ngModel)]="user.name" required>
+                              <span><span>Nombre</span></span>
+                            </label>
+                          
+                            <label class="input" >
+                                <input type="text" name="nick" #nick="ngModel" [(ngModel)]="user.nick" required>
+                                <span><span>Nick</span></span>
+                            </label>
+
+                            <label class="input" >
+                                    <input type="email" name="email" #email="ngModel" [(ngModel)]="user.email" required>
+                                    <span><span>Email</span></span>
+                            </label>
+        
+    
+                            <label class="input">
+                                  <input type="password" name="password" #password="ngModel" [(ngModel)]="user.password" required>
+                                  <span><span>Password</span></span>
+                            </label>
+                            
+                          </div>
+                          <!--<a class="btn">Register</a><!-->
+                            <input type="submit" class="btn" value="Register">
+                </form>
+                
+                    
+          </div>
+      </li>
+  </ul>
+  
+  
+
+
+
+</body>

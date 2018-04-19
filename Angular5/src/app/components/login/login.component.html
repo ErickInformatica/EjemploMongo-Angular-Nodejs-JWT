@@ -1,0 +1,50 @@
+
+<body class="background-body" >
+  
+  <h1>Welcome <span>Login/Register</span></h1>
+
+  <ul class="tabs" role="tablist">
+      <li>
+          <input type="radio" name="tabs" id="tab1" checked />
+          <label class="texto" for="tab1" 
+                 role="tab" 
+                 aria-selected="true" 
+                 aria-controls="panel1" 
+                 tabindex="0">LogIn</label>
+          <div id="tab-content1" class="tab-content" role="tabpanel" aria-labelledby="description" aria-hidden="false">
+            <div class="card success-color text-center z-depth-2" *ngIf="status == 'success'">
+              <div class="card-body">
+                  <p class="white-text mb-0">Login realizado correctamente</p>
+              </div>
+          </div>
+          <div class="card red lighten-1 text-center z-depth-2" *ngIf="status == 'error'">
+            <div class="card-body">
+                <p class="white-text mb-0">Login no realizado correctamente</p>
+            </div>
+        </div>
+            <form #loginForm="ngForm" (ngSubmit)="onSubmit()">
+              <div id="fancy-inputs" >
+                <label class="input">
+                  <input type="text" name="email" #email="ngModel" [(ngModel)]="user.email" required>
+                  <span><span>Email</span></span>
+                </label>
+            
+                <label class="input">
+                  <input type="text" name="password" #password="ngModel" [(ngModel)]="user.password" required>
+                  <span><span>Password</span></span>
+                </label>
+                
+              </div>
+              <input type="submit" class="btn" value="Login">
+            </form>
+              
+              </div>
+      </li>
+    
+      </ul>
+  
+  
+
+
+
+</body>

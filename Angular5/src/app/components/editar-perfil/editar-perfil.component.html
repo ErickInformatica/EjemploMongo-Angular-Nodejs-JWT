@@ -1,0 +1,54 @@
+<body>
+  <div class="card success-color text-center z-depth-2" *ngIf="status == 'success'">
+      <div class="card-body">
+          <p class="white-text mb-0">se han actualizado tus datos correctamente <a [routerLink]="['/home']">Ir a Home</a></p>
+      </div>
+  </div>
+  <div class="card red lighten-1 text-center z-depth-2" *ngIf="status == 'error'">
+      <div class="card-body">
+          <p class="white-text mb-0">No se han actualizado tus datos</p>
+      </div>
+  </div>
+
+  <form class="login-form" #userEditForm="ngForm" (ngSubmit)="onSubmit()">
+    <div class="wrap">
+      <div class="avatar" >
+        <img src="{{ url + 'get-image-user/' + user.image }}" *ngIf="user.image">
+        <img src="./assets/user.png" *ngIf="!user.image" />
+      </div>
+      
+      
+      <input type="text" placeholder="nombre" name="nombre" #name="ngModel" [(ngModel)]="user.name" required>
+      <span *ngIf="!name.value && name.touched">
+        El nombre es obligatorio
+      </span>
+      <div class="bar">
+        <i></i>
+      </div>
+      
+      <input type="text" placeholder="nick" name="nick" #nick="ngModel" [(ngModel)]="user.nick"  required>
+      <span *ngIf="!nick.value && nick.touched">
+        El nick es obligatorio
+      </span>
+      <div class="bar">
+        <i></i>
+      </div>
+      <input type="text" placeholder="email" name="email" #email="ngModel" [(ngModel)]="user.email" required>
+      <span *ngIf="!email.value && email.touched">
+        El email es obligatorio
+      </span>
+      <!--<div class="bar">
+        <i></i>
+      </div>
+      <input type="password" placeholder="password" required>
+     <input type="file" placeholder="subir imagen" (change)="fileChangeEvent($event)">-->
+     
+      <div class="file">
+          <p></p>
+          <input type="file" (change)="fileChangeEvent($event)">
+        </div>
+      <button type="submit">Editar</button>
+    </div>
+    </form>
+</body>
+
